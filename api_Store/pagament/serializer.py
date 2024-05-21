@@ -4,4 +4,4 @@ from .models import *
 class pagamentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Pagament
-        fieelds = '__all__'
+        fields = '__all__'
