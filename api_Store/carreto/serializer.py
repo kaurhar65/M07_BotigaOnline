@@ -4,4 +4,4 @@ from .models import Carreto
 class CarretoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Carreto
-        fieelds = '__all__'
+        fields = '__all__'
