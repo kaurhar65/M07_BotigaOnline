@@ -17,6 +17,14 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+from comandes import views
+
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    # COMANDES
+    path('comandes/get/', views.get_Comand, name="get"),
+    path('comandes/get/<int:pk>/', views.get_Comand_ById, name="getById"),
+    path('comandes/delete/<int:pk>/', views.delete_Comand_ById, name="deleteById"),
 ]
