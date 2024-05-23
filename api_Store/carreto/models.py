@@ -8,7 +8,7 @@ from django.utils import timezone
 
 class Carreto(models.Model):
     producte = models.ManyToManyField(Producte)
-    client = models.OneToOneField(Client, on_delete= models.CASCADE)
+    client = models.ForeignKey(Client, on_delete= models.CASCADE)
     actiu = models.BooleanField(default=False)
     preuTotal = models.DecimalField(max_length=100, max_digits=10, decimal_places=2)
     created_at = models.DateTimeField(default=timezone.now)

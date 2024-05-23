@@ -17,22 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-
+from comandes import views
 from pagament import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     
-    
-    
-    
-    
-    
-    
-    
-    
+    # COMANDES
+    # path('comandes/get/', views.get_Comand, name="get"),
+    # path('comandes/get/<int:pk>/', views.get_Comand_ById, name="getById"),    
+    # path('comandes/get/client/<int:client_id>/', views.get_Comand_ByClient, name="getByClient"),
+    # path('comandes/get/actives/', views.get_Comand_Active, name="getByActive"),    
+    # path('comandes/delete/<int:pk>/', views.delete_Comand_ById, name="deleteById"),
     #PAGAMENTS
-    path('pagament/get/status/', views.get_Status_ById, name="getByStatus"),
+    path('pagament/get/status/<int:comanda_id>/', views.get_Status_ById, name="getByStatus"),
     path('pagament/post/<int:comanda_id>/', views.pay_Comand, name="payComand"),
-    
 ]
