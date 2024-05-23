@@ -17,6 +17,23 @@ def get_Comand_ById(request, pk):
     data_serializer = comandaSerializer(comandList, many=False)
     return Response({"data":data_serializer.data})
 
+
+@api_view(['GET'])
+def get_Comand_ByClient(request, client_id):
+    try:
+        client = Client.objects.get(id=client_id)
+        comandes = Comanda.objects.filter(client=client)
+        data_serializer = comandaSerializer(comandes, many=True)
+        return Response({"data": data_serializer.data})
+    except Client.DoesNotExist:
+        return Response({"error": "Client no trobat"}, status=404)
+    
+@api_view(['GET'])
+def get_Comand_Active(request):
+    comandes = Comanda.objects.filter(actiu=True)
+    data_serializer = comandaSerializer(comandes, many=True)
+    return Response({"data": data_serializer.data})
+
 @api_view(['DELETE'])
 def delete_Comand_ById(request, pk):
     comand= Comanda.objects.get(id=pk)
