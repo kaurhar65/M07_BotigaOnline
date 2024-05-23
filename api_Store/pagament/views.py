@@ -7,12 +7,12 @@ from rest_framework.response import Response
 
 
 # Create your views here.
-# ----------- retorna només les comandes obertes 
+# ----------- retorna només l'estat de CADA COMANDA.  
 @api_view(['GET'])
-def get_Comand_Status(request, comanda_id):
+def get_Status_ById(request, comanda_id):
     try:
-        comanda = Comanda.objects.get(id=comanda_id, actiu=True)
-        data_serializer = comandaSerializer(comanda)
+        comanda = Comanda.objects.get(id=comanda_id)
+        data_serializer = comandaActiuSerializer(comanda)
         return Response({"data": data_serializer.data})
     except Comanda.DoesNotExist:
         return Response({"error": "Comanda no trobada"})

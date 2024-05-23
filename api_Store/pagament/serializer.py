@@ -11,3 +11,8 @@ class comandaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comanda
         fields = '__all__'
+        
+class comandaActiuSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Comanda
+        fields = ['actiu']

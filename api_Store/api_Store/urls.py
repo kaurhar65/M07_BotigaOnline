@@ -32,7 +32,7 @@ urlpatterns = [
     
     
     #PAGAMENTS
-    path('pagament/get/actives/', views.get_Comand_Status, name="getByStatus"),
+    path('pagament/get/status/', views.get_Status_ById, name="getByStatus"),
     path('pagament/post/<int:comanda_id>/', views.pay_Comand, name="payComand"),
     
 ]
