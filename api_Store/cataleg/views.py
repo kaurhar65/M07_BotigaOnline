@@ -23,3 +23,11 @@ def delete_Prod_ById(request, pk):
     prod= Producte.objects.get(id=pk)
     prod.delete()
     return Response({"message": "oleeeee eliminado"})
+
+@api_view(['POST'])
+def add_Prod(request):
+    serializer=producteSerializer(data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=201)
+    return Response(serializer.errors, status=400)
