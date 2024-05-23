@@ -31,3 +31,16 @@ def add_Prod(request):
         serializer.save()
         return Response(serializer.data, status=201)
     return Response(serializer.errors, status=400)
+
+@api_view(['PUT'])
+def update_Prod(request, pk):
+    try:
+        product = Producte.objects.get(pk=pk)
+    except Producte.DoesNotExist:
+        return Response({"error": "xisteeeee"}, status=404)
+
+    serializer = producteSerializer(product, data=request.data)
+    if serializer.is_valid():
+        serializer.save()
+        return Response(serializer.data, status=200)
+    return Response(serializer.errors, status=400)
