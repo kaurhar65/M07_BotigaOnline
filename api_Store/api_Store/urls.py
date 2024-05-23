@@ -17,6 +17,18 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
+from carreto import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    
+    
+    
+    
+    # CARRETO
+    path('carreto/get/', views.get_Carreto, name="get"),
+    path('carreto/get/<int:pk>/', views.get_Carreto_ById, name="getById"),
+    path('carreto/delete/<int:pk>/', views.delete_Carreto_ById, name="deleteById"),
 ]
