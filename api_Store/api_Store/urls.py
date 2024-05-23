@@ -17,6 +17,22 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+
+from pagament import views
+
 urlpatterns = [
     path('admin/', admin.site.urls),
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #PAGAMENTS
+    path('pagament/get/actives/', views.get_Comand_Status, name="getByStatus"),
+    path('pagament/post/<int:comanda_id>/', views.pay_Comand, name="payComand"),
+    
 ]
