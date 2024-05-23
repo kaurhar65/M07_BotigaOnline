@@ -37,8 +37,8 @@ def pay_Comand(request, comanda_id):
         )
         pagament.save()
 
-        # Actualitzar l'estat de la comanda
-        comanda.actiu = True
+        # ja ha pagat, comanda inactiva.
+        comanda.actiu = False
         comanda.save()
         
         data_serializer = comandaSerializer(comanda)
