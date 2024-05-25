@@ -18,11 +18,12 @@ def get_Prod_ById(request, pk):
     data_serializer = producteSerializer(productList, many=False)
     return Response({"data":data_serializer.data})
 
-@api_view(['DELETE'])
+@api_view(['PUT'])
 def delete_Prod_ById(request, pk):
-    prod= Producte.objects.get(id=pk)
-    prod.delete()
-    return Response({"message": "oleeeee eliminado"})
+    producte = Producte.objects.get(id=pk)
+    producte.actiu = False
+    producte.save()
+    return Response({"message": "Producto eliminado correctamente"}, status=200)
 
 @api_view(['POST'])
 def add_Prod(request):
