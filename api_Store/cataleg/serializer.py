@@ -10,3 +10,8 @@ class catalagSerializer(serializers.ModelSerializer):
     class Meta:
         model = Cataleg
         fields = '__all__'
+
+class producteQuantSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Producte
+        fields = ['quantitat']

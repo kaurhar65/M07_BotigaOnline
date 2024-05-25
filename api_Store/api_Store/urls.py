@@ -24,5 +24,6 @@ urlpatterns = [
     path('cataleg/get/<int:pk>/', views.get_Prod_ById, name="getById"),
     path('cataleg/delete/<int:pk>/', views.delete_Prod_ById, name="deleteById"),
     path('product/add/', views.add_Prod, name="addProd"),
-    path('product/update/<int:pk>/', views.update_Prod, name="updateProd")
+    path('product/update/<int:pk>/', views.update_Prod, name="updateProd"),
+    path('editaStockProducte/<int:pk>/', views.editaStockProducte, name="updateStock")
 ]

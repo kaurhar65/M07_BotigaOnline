@@ -44,3 +44,12 @@ def update_Prod(request, pk):
         serializer.save()
         return Response(serializer.data, status=200)
     return Response(serializer.errors, status=400)
+
+@api_view(['PUT'])
+def editaStockProducte(request, pk):
+    producte = Producte.objects.get(id=pk)
+    serializer = producteQuantSerializer(producte, data=request.data)
+    if serializer.is_valid():
+        serializer.save()  
+        return Response(serializer.data)
+    return Response(serializer.errors, status=400)
