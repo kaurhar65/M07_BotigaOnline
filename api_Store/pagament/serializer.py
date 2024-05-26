@@ -16,3 +16,8 @@ class comandaActiuSerializer(serializers.ModelSerializer):
     class Meta:
         model = Comanda
         fields = ['actiu']
+
+class payComandSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pagament
+        fields = ['numTarjeta', 'dataCad', 'cvc']

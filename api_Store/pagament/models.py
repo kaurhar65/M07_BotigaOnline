@@ -7,7 +7,6 @@ from client.models import Client
 
 class Pagament(models.Model):
     comanda = models.OneToOneField(Comanda, on_delete= models.CASCADE)
-    client = models.ForeignKey(Client, on_delete= models.CASCADE)
     numTarjeta = models.CharField(max_length=30)
     dataCad = models.CharField(max_length=5)
     cvc = models.CharField(max_length=3)
