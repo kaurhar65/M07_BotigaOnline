@@ -5,6 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 # Create your views here.
+
+# Mostrar historial de comandes
 @api_view(['GET'])
 def get_Comand(request):
     try:
@@ -14,6 +16,7 @@ def get_Comand(request):
     except Comanda.DoesNotExist:
         return Response({"message": "No hi han comandes registrades.", "data":data_serializer.data}, status=404)
 
+# Mostrar comandes per id en concret
 @api_view(['GET'])
 def get_Comand_ById(request, pk):
     try:
@@ -23,6 +26,7 @@ def get_Comand_ById(request, pk):
     except Comanda.DoesNotExist:
         return Response({"message": "No hi ha cap comanda amb l'ID corresponent.", "data":data_serializer.data}, status=404)
 
+# Mostrar historial de comandes per un client en concret
 @api_view(['GET'])
 def get_Comand_ByClient(request, client_id):
     try:
@@ -33,6 +37,7 @@ def get_Comand_ByClient(request, client_id):
     except Client.DoesNotExist:
         return Response({"error": "Client no trobat."}, status=404)
     
+# Mostrar historial de comandes que no estan finalitzades (estat actiu = true)
 @api_view(['GET'])
 def get_Comand_Active(request):
     try:
@@ -42,6 +47,7 @@ def get_Comand_Active(request):
     except Comanda.DoesNotExist:
         return Response({"error": "Totes les comandes estan pagades."}, status=404)
 
+# detele comanda
 @api_view(['DELETE'])
 def delete_Comand_ById(request, pk):
     try:

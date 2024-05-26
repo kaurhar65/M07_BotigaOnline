@@ -25,10 +25,8 @@ urlpatterns = [
     
     # COMANDES
     path('comandes/get/', views.get_Comand, name="get"),
-    path('comandes/get/<int:pk>/', views.get_Comand_ById, name="getById"),
-    
+    path('comandes/get/<int:pk>/', views.get_Comand_ById, name="getById"),    
     path('comandes/get/client/<int:client_id>/', views.get_Comand_ByClient, name="getByClient"),
-    path('comandes/get/actives/', views.get_Comand_Active, name="getByActive"),
-    
+    path('comandes/get/actives/', views.get_Comand_Active, name="getByActive"),    
     path('comandes/delete/<int:pk>/', views.delete_Comand_ById, name="deleteById"),
 ]
