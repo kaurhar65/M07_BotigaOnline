@@ -30,7 +30,9 @@
 <a href="https://drive.google.com/file/d/1ymmiB2A0zqKDmGfd_jVUCP3roERlGAJz/view?usp=sharing">Vídeo de Pagament</a>
 
 ### Pagar una comanda
+#### Comanda pagada amb éxit
 <img src="https://i.imgur.com/L2pyMuq.png">
 
 ### Consultar estat comanda
 <img src="https://i.imgur.com/lZknwe7.png">
+<img src="https://i.imgur.com/dYI3AC4.png">
