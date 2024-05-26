@@ -17,20 +17,25 @@
 
 ## COMANDES
 
-<a href="">Vídeo de Comandes</a>,
+<a href="https://drive.google.com/file/d/1dHlSrbO75toenFt0KwyH9_g55B3UElEz/view?usp=sharing">Vídeo de Comandes</a>
 
 ### Mostrar historial de comandes
 
+<img src="https://i.imgur.com/YWqkSaM.png">
+
 ### Mostrar historial de comandes per un client en concret
 
+<img src="https://i.imgur.com/fRiYS1q.png">
+
 ### Mostrar historial de comandes que no estan finalitzades
+
+<img src="https://i.imgur.com/Ds84gsY.png">
 
 ## PAGAMENT
 
 <a href="https://drive.google.com/file/d/1ymmiB2A0zqKDmGfd_jVUCP3roERlGAJz/view?usp=sharing">Vídeo de Pagament</a>
 
 ### Pagar una comanda
-#### Comanda pagada amb éxit
 <img src="https://i.imgur.com/L2pyMuq.png">
 
 ### Consultar estat comanda
