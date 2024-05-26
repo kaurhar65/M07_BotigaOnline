@@ -30,6 +30,7 @@ urlpatterns = [
     # path('comandes/get/client/<int:client_id>/', views.get_Comand_ByClient, name="getByClient"),
     # path('comandes/get/actives/', views.get_Comand_Active, name="getByActive"),    
     # path('comandes/delete/<int:pk>/', views.delete_Comand_ById, name="deleteById"),
+    
     #PAGAMENTS
     path('pagament/get/status/<int:comanda_id>/', views.get_Status_ById, name="getByStatus"),
     path('pagament/post/<int:comanda_id>/', views.pay_Comand, name="payComand"),

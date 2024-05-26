@@ -39,7 +39,6 @@ def pay_Comand(request, comanda_id):
             actiu= False
         )
         pagament.save()
-
         # ja ha pagat, comanda inactiva.
         comanda.actiu = False
         comanda.save()
