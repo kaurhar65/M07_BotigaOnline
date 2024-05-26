@@ -8,49 +8,65 @@ from rest_framework.response import Response
 # Create your views here.
 @api_view(['GET'])
 def get_Prod(request):
-    productList = Producte.objects.all()
-    data_serializer = producteSerializer(productList, many=True)
-    return Response({"data":data_serializer.data})
+    try: 
+        productList = Producte.objects.all()
+        data_serializer = producteSerializer(productList, many=True)
+        return Response({"message:":"Tots els productes", "data":data_serializer.data})
+    except Producte.DoesNotExist:
+        return Response({"error": "No hi han productes registrats."}, status=404)
+
 
 @api_view(['GET'])
 def get_Prod_ById(request, pk):
-    productList = Producte.objects.get(id=pk)
-    data_serializer = producteSerializer(productList, many=False)
-    return Response({"data":data_serializer.data})
+    try:
+        productList = Producte.objects.get(id=pk)
+        data_serializer = producteSerializer(productList, many=False)
+        return Response({"message:":"Producte segons l'ID","data":data_serializer.data})
+    except Producte.DoesNotExist:
+        return Response({"error": "No existeix aquest ID."}, status=404)
 
 @api_view(['PUT'])
 def delete_Prod_ById(request, pk):
-    producte = Producte.objects.get(id=pk)
-    producte.actiu = False
-    producte.save()
-    return Response({"message": "Producto eliminado correctamente"}, status=200)
+    try: 
+        producte = Producte.objects.get(id=pk)
+        producte.actiu = False
+        producte.save()
+        return Response({"message:":"Producte eliminat correctament."}, status=200)
+    except Producte.DoesNotExist:
+        return Response({"error": "No existeix aquest producte."}, status=404)
 
 @api_view(['POST'])
 def add_Prod(request):
-    serializer=producteSerializer(data=request.data)
-    if serializer.is_valid():
-        serializer.save()
-        return Response(serializer.data, status=201)
-    return Response(serializer.errors, status=400)
+    try:
+        serializer=producteSerializer(data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response({ "message:":" Producte afegit correctament", "data":serializer.data},status=201)
+    except:
+        return Response({"error": "No s'ha pogut completar l'acció", "data":serializer.errors}, status=400)
 
 @api_view(['PUT'])
 def update_Prod(request, pk):
     try:
         product = Producte.objects.get(pk=pk)
     except Producte.DoesNotExist:
-        return Response({"error": "xisteeeee"}, status=404)
+        return Response({"error": "No existeix aquest producte."}, status=404)
 
     serializer = producteSerializer(product, data=request.data)
     if serializer.is_valid():
         serializer.save()
-        return Response(serializer.data, status=200)
-    return Response(serializer.errors, status=400)
+        return Response({ "message:":" Producte actualitzat correctament", "data":serializer.data}, status=200)
+    return Response({"error": "No s'ha pogut actualitzar l'informació", "data":serializer.errors}, status=400)
 
 @api_view(['PUT'])
 def editaStockProducte(request, pk):
-    producte = Producte.objects.get(id=pk)
+    try:
+        producte = Producte.objects.get(id=pk)
+    except Producte.DoesNotExist:
+        return Response({"error": "No existeix aquest producte."}, status=404)
+    
     serializer = producteQuantSerializer(producte, data=request.data)
     if serializer.is_valid():
         serializer.save()  
-        return Response(serializer.data)
-    return Response(serializer.errors, status=400)
+        return Response({ "message:":" Stock del producte actualitzat", "data":serializer.data}, status=200)
+    return Response({"error": "No s'ha pogut actualitzar la quantitat del producte", "data":serializer.errors}, status=400)
