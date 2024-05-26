@@ -6,6 +6,7 @@ from rest_framework.response import Response
 
 
 # Create your views here.
+# Veure tots els productes.
 @api_view(['GET'])
 def get_Prod(request):
     try: 
@@ -15,7 +16,7 @@ def get_Prod(request):
     except Producte.DoesNotExist:
         return Response({"error": "No hi han productes registrats."}, status=404)
 
-
+# Veure informació detallada d’un producte.
 @api_view(['GET'])
 def get_Prod_ById(request, pk):
     try:
@@ -25,16 +26,7 @@ def get_Prod_ById(request, pk):
     except Producte.DoesNotExist:
         return Response({"error": "No existeix aquest ID."}, status=404)
 
-@api_view(['PUT'])
-def delete_Prod_ById(request, pk):
-    try: 
-        producte = Producte.objects.get(id=pk)
-        producte.actiu = False
-        producte.save()
-        return Response({"message:":"Producte eliminat correctament."}, status=200)
-    except Producte.DoesNotExist:
-        return Response({"error": "No existeix aquest producte."}, status=404)
-
+# Afegir nous productes.
 @api_view(['POST'])
 def add_Prod(request):
     try:
@@ -45,6 +37,18 @@ def add_Prod(request):
     except:
         return Response({"error": "No s'ha pogut completar l'acció", "data":serializer.errors}, status=400)
 
+# Eliminar productes a través d’un borrat lògic 
+@api_view(['PUT'])
+def delete_Prod_ById(request, pk):
+    try: 
+        producte = Producte.objects.get(id=pk)
+        producte.actiu = False
+        producte.save()
+        return Response({"message:":"Producte eliminat correctament."}, status=200)
+    except Producte.DoesNotExist:
+        return Response({"error": "No existeix aquest producte."}, status=404)
+
+# Actualitzar productes 
 @api_view(['PUT'])
 def update_Prod(request, pk):
     try:
@@ -58,6 +62,7 @@ def update_Prod(request, pk):
         return Response({ "message:":" Producte actualitzat correctament", "data":serializer.data}, status=200)
     return Response({"error": "No s'ha pogut actualitzar l'informació", "data":serializer.errors}, status=400)
 
+# Actualitzar stock productes
 @api_view(['PUT'])
 def editaStockProducte(request, pk):
     try:
