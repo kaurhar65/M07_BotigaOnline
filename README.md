@@ -1,19 +1,25 @@
 # HARPREET KAUR I LAIA RODRÍGUEZ
 
 ## CATALEG
-<a href="">Video de Cataleg</a>
+<a href="https://drive.google.com/file/d/1aTR0dnNlYts6E98Ff3sq6DvXsGUNVW7E/view?usp=drive_link">Video de Cataleg</a>
 
 ### Afegir nous productes
+<img src="https://i.imgur.com/9rgPLSd.png">
 
 ### Actualitzar productes
+<img src="https://i.imgur.com/YWqkSaM.png">
 
 ### Actualitzar stock productes
+<img src="https://i.imgur.com/YWqkSaM.png">
 
 ### Eliminar productes a través d'un borrat lògic
+<img src="https://i.imgur.com/YWqkSaM.png">
 
 ### Veure tots els productes
+<img src="https://i.imgur.com/YWqkSaM.png">
 
 ### Veure informació detallada d'un producte
+<img src="https://i.imgur.com/YWqkSaM.png">
 
 ## COMANDES
 
